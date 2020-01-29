@@ -1,0 +1,24 @@
+---
+applications:
+- name: dadjoke-service
+  memory: 1024M
+  host: dadjokes
+  path: dad-joke-service/target/dad-joke-service-0.0.1-SNAPSHOT.jar
+  services:
+  - dadjokes-db
+  - config-server
+  - service-registry
+  #env:
+    # Replace with API URI of target PCF environment
+    #CF_TARGET: https://api.yourpcfenvironment.local
+- name: dadjoke-ui
+  memory: 1024M
+  host: dadjokes-ui
+  path: dad-joke-ui/target/dad-joke-ui-0.0.1-SNAPSHOT.jar
+  services:
+  - config-server
+  - service-registry
+  - circuit-breaker
+  #env:
+    # Replace with API URI of target PCF environment
+    #CF_TARGET: https://api.yourpcfenvironment.local

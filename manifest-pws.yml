@@ -1,0 +1,20 @@
+---
+applications:
+- name: dadjokes
+  memory: 1024M
+  random-route: true
+  path: dad-joke-service/target/dad-joke-service-0.0.1-SNAPSHOT.jar
+  instances: 1
+  services:
+  - dadjokes-db
+  - dadjokes-config-server
+  - dadjokes-service-registry
+- name: dadjoke-ui
+  memory: 1024M
+  random-route: true
+  path: dad-joke-ui/target/dad-joke-ui-0.0.1-SNAPSHOT.jar
+  instances: 1
+  services:
+  - dadjokes-config-server
+  - dadjokes-service-registry
+  - dadjokes-circuit-breaker-dashboard

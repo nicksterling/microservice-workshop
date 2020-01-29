@@ -1,0 +1,10 @@
+---
+memory: 384M
+instances: 1
+applications:
+- name: dadjoke-ui
+  host: dadjokes-ui-${random-word}
+  path: target/dad-joke-ui-0.0.1-SNAPSHOT.jar
+  services:
+  - config-server
+  - service-registry
